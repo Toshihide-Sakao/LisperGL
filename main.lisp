@@ -24,8 +24,11 @@
   (finish-output)
   (sdl2:with-event-loop (:method :poll)
     (:keydown (:keysym keysym)
-              (format t "Key ~A pressed.~%" (sdl2:scancode-value keysym))
-              (finish-output))
+              (let ((scancode (sdl2:scancode keysym)))
+                (format t "Key ~A pressed.~%" (sdl2:scancode-value keysym))
+
+                (if (= scancode 41)
+                    (sdl2:push-quit-event))))
 
     (:idle ()
            (gl:clear :color-buffer)
