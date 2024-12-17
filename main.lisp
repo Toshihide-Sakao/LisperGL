@@ -27,10 +27,6 @@
               (format t "Key ~A pressed.~%" (sdl2:scancode-value keysym))
               (finish-output))
 
-    (:keyup (:keysym keysym)
-            (when (sdl2:scancode= (sdl2:scancode-value keysym) :scancode-escape)
-                  (sdl2:push-event :quit)))
-
     (:idle ()
            (gl:clear :color-buffer)
            (tri '(1.0 0.0 0.0) 0 0 2 2)
