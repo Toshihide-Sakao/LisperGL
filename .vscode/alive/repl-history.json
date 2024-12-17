@@ -1,1 +1,1 @@
-[{"pkgName":"cl-user","text":"(basic-test)"},{"pkgName":"cl-user","text":"(load \"main.lisp\")"},{"pkgName":"cl-user","text":"(ql:quickload :sdl2/examples) (sdl2-examples:basic-test)"},{"pkgName":"cl-user","text":"(load \"main.fasl\")"},{"pkgName":"cl-user","text":"(compile-file \"main.lisp\")"},{"pkgName":"cl-user","text":"(eval \"main.lisp\")"}]
+[{"pkgName":"cl-user","text":"(load \"main.lisp\")"},{"pkgName":"cl-user","text":"(quit)"},{"pkgName":"cl-user","text":"(basic-test)"}]

@@ -18,17 +18,20 @@
     (gl:vertex x3 y3)
     (gl:end)))
 
+(defun key-handler (keysym)
+  (let ((val (sdl2:scancode-value keysym)))
+    (format t "Key ~A pressed.~%" val)
+
+    (when (sdl2:scancode= val :scancode-escape)
+          (format t "hahah")
+          (sdl2:push-event :quit))))
 
 (defun main-loop (win)
   (format t "Beginning main loop.~%")
   (finish-output)
   (sdl2:with-event-loop (:method :poll)
     (:keydown (:keysym keysym)
-              (let ((scancode (sdl2:scancode keysym)))
-                (format t "Key ~A pressed.~%" (sdl2:scancode-value keysym))
-
-                (if (= scancode 41)
-                    (sdl2:push-quit-event))))
+              (key-handler keysym))
 
     (:idle ()
            (gl:clear :color-buffer)
@@ -67,5 +70,6 @@
 
         ; (format t "Closing opened game controllers.~%")
         (finish-output)
+        ; (sdl_quit)
         ;; close any game controllers that were opened as well as any haptics
           ))))
